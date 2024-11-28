@@ -1,0 +1,40 @@
+{
+	"name": "trixy-bot",
+	"description": "",
+	"version": "1.0.0",
+	"type": "module",
+	"private": true,
+	"keywords": [
+		"bot",
+		"discord",
+		"discord.js",
+		"robo",
+		"robo.js",
+		"typescript"
+	],
+	"scripts": {
+		"build": "robo build",
+		"deploy": "robo deploy",
+		"dev": "robox dev",
+		"doctor": "sage doctor",
+		"invite": "robo invite",
+		"lint": "npm run lint:eslint && npm run lint:style",
+		"lint:eslint": "eslint . --ext js,jsx,ts,tsx",
+		"lint:style": "prettier --write .",
+		"start": "robo start",
+		"upgrade": "sage upgrade"
+	},
+	"dependencies": {
+		"discord.js": "^14.16.3",
+		"robo.js": "^0.10.15"
+	},
+	"devDependencies": {
+		"@swc/core": "^1.7.26",
+		"@types/node": "^22.7.4",
+		"@typescript-eslint/eslint-plugin": "^8.8.0",
+		"@typescript-eslint/parser": "^8.8.0",
+		"eslint": "^9.11.1",
+		"prettier": "^3.3.3",
+		"typescript": "^5.6.2"
+	}
+}
