@@ -1,7 +1,3 @@
-Avant l'éxécution installer les dépendences via :
-
-```bash
-npm run i
-```
+Télécharge le fichier .zip et décompresse le, change ton dossier `.src` par le mien
 
 N'oublie pas de rajouter ton fichier `.env`
