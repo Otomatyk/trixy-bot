@@ -3,7 +3,7 @@ import { type CommandConfig, Flashcore } from "robo.js";
 import { addBox, chooseRandomBox, getUserBoxes } from "../boxes";
 
 export const config: CommandConfig = {
-	description: "Open your daily box and earn rewards!",
+	description: "Open your daily box !",
 };
 
 const MS_ONE_HOUR = 1000 * 60 * 60;
@@ -29,7 +29,7 @@ export default async (interaction: CommandInteraction) => {
 
 		await Flashcore.set(`${userId}-ms-since-last-box`, Date.now());
 
-		return `You've just earned a ${box} box !`;
+		return `You've just earned a **${box} box** !`;
 	}
 
 	return `You still have to wait ${Math.round(msSinceLastBox / MS_ONE_HOUR)} hours before opening annother box !`;

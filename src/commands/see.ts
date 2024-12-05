@@ -27,7 +27,7 @@ export default async (interaction: CommandInteraction) => {
 		message.push("Here are your boxes : ");
 
 		for (const box of userBoxes) {
-			message.push(`${box} box`);
+			message.push(`- **${box}** box`);
 		}
 	}
 

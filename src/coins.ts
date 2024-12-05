@@ -23,6 +23,4 @@ export const getUserCoins = async (userId: string): Promise<number> => {
 	return Number.parseInt(await Flashcore.get(`${userId}-coins`));
 };
 
-export const randomCoinsNumber = (): number => {
-	return Math.floor(Math.random() * 100) + 20;
-};
+export const randomCoinsNumber = () => Math.floor(Math.random() * 100) + 20;

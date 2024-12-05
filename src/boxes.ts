@@ -10,10 +10,10 @@ export enum BoxeType {
 export const chooseRandomBox = async (): Promise<BoxeType> => {
 	const n = Math.random(); // 0 - 1
 
-	// 0.0 - 0.6 => 60%
+	// 0.0 - 0.5 => 50%
 	if (n <= 0.6) return BoxeType.Wood;
 
-	// 0.6 - 0.8 => 20%
+	// 0.6 - 0.8 => 30%
 	if (n <= 0.8) return BoxeType.Iron;
 
 	// 0.8 - 0.95 => 15%
@@ -43,34 +43,10 @@ export const addBox = async (userId: string, box: BoxeType) => {
 export const consumeBox = async (userId: string, box: BoxeType) => {
 	const boxes = await getUserBoxes(userId);
 
-	boxes.splice(boxes.indexOf(box));
-
+    const index = boxes.indexOf(box);
+    if (index !== -1) {
+        boxes.splice(index, 1); 
+    }
+	
 	await Flashcore.set(`${userId}-boxes`, boxes);
 };
-
-// export const updateCoin = async (
-// 	change: number,
-// 	userId: string,
-// ): Promise<number> => {
-// 	if (!(await Flashcore.has(`${userId}-coins`))) {
-// 		await Flashcore.set(`${userId}-coins`, 0);
-// 	}
-
-// 	const newValue = (await getUserCoins(userId)) + change;
-
-// 	await Flashcore.set(`${userId}-coins`, newValue);
-
-// 	return newValue;
-// };
-
-// export const getUserCoins = async (userId: string): Promise<number> => {
-// 	if (!(await Flashcore.has(`${userId}-coins`))) {
-// 		return 0;
-// 	}
-
-// 	return Number.parseInt(await Flashcore.get(`${userId}-coins`));
-// };
-
-// export const randomCoinsNumber = (): number => {
-// 	return Math.floor(Math.random() * 100) + 20;
-// };
